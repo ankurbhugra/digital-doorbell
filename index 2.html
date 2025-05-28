@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Doorbell</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 20%; }
+    h1 { font-size: 2rem; }
+    p { font-size: 1.2rem; color: #444; }
+  </style>
+</head>
+<body>
+  <h1>🔔 You’ve reached Ankur’s door</h1>
+  <p>He’s been notified you’re here.</p>
+  <script>
+    fetch("https://api.ultramsg.com/instance12345/messages/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        token: "your_ultramsg_token",
+        to: "+919999631193",
+        body: "🚪 Someone scanned your digital doorbell QR!"
+      })
+    });
+  </script>
+</body>
+</html>
